@@ -82,7 +82,17 @@ class AnalyzeSales:
         plt.title('effect of monthly assortment on a sales')
         plt.xlabel('Assortment')
         plt.ylabel('Average Sales')
-        plt.legend(['No Promo', 'Promo'])
+        plt.show()
+
+    def plot_distance_effect(self):
+        logging.info('plotting how compitation distance affect the sales')
+        distance_effect = self.data.groupby('CompetitionDistance')[
+            'Sales'].mean()
+        distance_effect.plot(kind='hist', bins=25, figsize=(15, 7))
+        plt.title('effect of compitition distance on a sales')
+        plt.xlabel('Distance')
+        plt.ylabel('Average Sales')
+        plt.legend('sales')
         plt.show()
 
     def plot_sales_vs_customers(self):
