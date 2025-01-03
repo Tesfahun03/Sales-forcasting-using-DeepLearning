@@ -11,6 +11,9 @@ logging.basicConfig(level=logging.INFO,
 
 
 class AnalyzeSales:
+    """class for analyzing diffrent relation ships and plots relationships
+    """
+
     def __init__(self, data):
         self.data = data
 
