@@ -9,6 +9,9 @@ logging.basicConfig(level=logging.INFO,
 
 
 class MergeData:
+    """a class for merging to dataset into single dataset by using store as a key
+    """
+
     def __init__(self, dataset1, dataset2):
         self.dataset1 = dataset1
         self.dataset2 = dataset2
@@ -28,6 +31,14 @@ class DataCleaner:
         self.data = data
     try:
         def fillna_with_previos_value(self, columns: list):
+            """filling NA values with previus value in the dataset
+
+            Args:
+                columns (list): _dataseries for a datframe_
+
+            Returns:
+                _PD.DataFrame_: _new dataframe with value filled_
+            """
             logging.info(' filling Na values with previos one started...')
             for col in columns:
                 self.data[col] = self.data[col].fillna(method='ffill')
