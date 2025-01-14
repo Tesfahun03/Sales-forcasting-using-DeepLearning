@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 class PlotMetrics:
@@ -16,6 +21,7 @@ class PlotMetrics:
     def plot(self):
         """_plot the acuuracy metrics for mean absolute error, mean squared error and r2-score_
         """
+        logging.info('plotting graph for accuracy metricses')
         plt.figure(figsize=(6, 4))
         plt.bar(self.models, self.mae_scores, color='green')
         plt.xlabel('models')
@@ -25,6 +31,7 @@ class PlotMetrics:
         plt.show()
 
         # plot for mean squared error
+        logging.info('plotting graph for mean squared error')
         plt.figure(figsize=(6, 4))
         plt.bar(self.models, self.mse_scores, color='yellow')
         plt.xlabel('models')
@@ -34,6 +41,7 @@ class PlotMetrics:
         plt.show()
 
         # plot for r2-scores
+        logging.info('plotting graph for r2-scores')
         plt.figure(figsize=(6, 4))
         plt.bar(self.models, self.r2_scores, color='red')
         plt.xlabel('models')
