@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO,
 class MergeData:
     """a class for merging to dataset into single dataset by using store as a key
     """
-
+    logging.info('merging and loading the data started..')
     def __init__(self, dataset1, dataset2):
         self.dataset1 = dataset1
         self.dataset2 = dataset2
@@ -23,13 +23,16 @@ class MergeData:
         df = pd.read_csv(
             '../data/merged_data.csv', parse_dates=['Date'])
         df.set_index('Date', inplace=True)
+        logging.info('Data merged')
         return df
 
 
 class DataCleaner:
     def __init__(self, data):
         self.data = data
+
     try:
+        logging.info('cleaning na values has started...')
         def fillna_with_previos_value(self, columns: list):
             """filling NA values with previus value in the dataset
 
